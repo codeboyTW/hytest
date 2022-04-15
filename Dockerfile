@@ -1,11 +1,9 @@
 FROM golang:alpine as grpcurl
 
-ENV GO111MODULE=on
-
 RUN apk update \
   && apk add --virtual build-dependencies git \
   && apk add bash curl jq \
-  && go get -u github.com/fullstorydev/grpcurl \
+  && go install github.com/fullstorydev/grpcurl \
   && go install github.com/fullstorydev/grpcurl/cmd/grpcurl@latest
 
 FROM alpine:latest
