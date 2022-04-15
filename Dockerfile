@@ -1,4 +1,7 @@
 FROM golang:alpine as grpcurl
+
+ENV GO111MODULE=on
+
 RUN apk update \
   && apk add --virtual build-dependencies git \
   && apk add bash curl jq \
