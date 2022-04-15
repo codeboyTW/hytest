@@ -3,7 +3,7 @@ FROM golang:alpine as grpcurl
 RUN apk update \
   && apk add --virtual build-dependencies git \
   && apk add bash curl jq \
-  && go install github.com/fullstorydev/grpcurl \
+  && go install github.com/fullstorydev/grpcurl@latest \
   && go install github.com/fullstorydev/grpcurl/cmd/grpcurl@latest
 
 FROM alpine:latest
